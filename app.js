@@ -1,19 +1,9 @@
-function add(n1, n2) {
-    return n1 + n2;
+var userInput;
+var userName;
+userInput = 5;
+userInput = 'Joms';
+// userName = userInput // Type 'unknown' is not assignable to type 'string'.
+// FIX:
+if (typeof userInput === 'string') {
+    userName = userInput;
 }
-function addAndHandle(n1, n2, cb) {
-    var result = n1 + n2;
-    cb(result);
-}
-function printResult(num) {
-    console.log('Result: ' + num);
-}
-printResult(add(5, 12));
-var combineValues;
-combineValues = add;
-// combineValues = printResult; // ERROR!
-// combineValues = 5 // ERROR!
-console.log(combineValues(8, 8));
-addAndHandle(10, 10, function (result) {
-    console.log('Callback output: ' + result);
-});
