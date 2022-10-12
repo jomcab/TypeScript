@@ -5,6 +5,7 @@ function add_ns(n1: number, n2: number, showResult: boolean, phrase: string){
   } else {
     return result;
   }
+  return;
 }
 
 const number1 = 5;
