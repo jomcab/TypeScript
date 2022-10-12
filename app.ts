@@ -1,15 +1,18 @@
-function combine(input1: number | string, input2: number | string) {
+function combine(input1: number | string, input2: number | string, resultType: 'as-number' | 'as-text') {
   let result;
-  if (typeof input1 === 'number' && typeof input2 === 'number') {
-    result = input1 + input2;
+  if (typeof input1 === 'number' && typeof input2 === 'number' || resultType === 'as-number') {
+    result = +input1 + +input2;
   } else {
     result = input1.toString() + input2.toString();
   }
   return result;
 }
 
-const combinedNums = combine(30, 26);
+const combinedNums = combine(30, 26, 'as-number');
 console.log(combinedNums);
 
-const combinedNames = combine('Joms', 'James');
+const combinedNumsString = combine(30, '26', 'as-number');
+console.log(combinedNumsString);
+
+const combinedNames = combine('Joms', 'James', 'as-text');
 console.log(combinedNames)
