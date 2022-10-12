@@ -1,17 +1,11 @@
-function combine(input1, input2, resultType) {
-    var result;
-    if ((typeof input1 === "number" && typeof input2 === "number") ||
-        resultType === "as-number") {
-        result = +input1 + +input2;
-    }
-    else {
-        result = input1.toString() + input2.toString();
-    }
-    return result;
+function add(n1, n2) {
+    return n1 + n2;
 }
-var combinedNums = combine(30, 26, "as-number");
-console.log(combinedNums);
-var combinedNumsString = combine(30, "26", "as-number");
-console.log(combinedNumsString);
-var combinedNames = combine("Joms", "James", "as-text");
-console.log(combinedNames);
+function printResult(num) {
+    console.log('Result: ' + num);
+}
+printResult(add(5, 12));
+var combineValues;
+combineValues = add;
+// combineValues = printResult; // ERROR!
+// combineValues = 5 // ERROR!

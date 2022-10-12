@@ -1,28 +1,14 @@
-type NumString = number | string;
-type ResultDescriptor = "as-number" | "as-text";
-
-function combine(
-  input1: NumString,
-  input2: NumString,
-  resultType: ResultDescriptor
-) {
-  let result;
-  if (
-    (typeof input1 === "number" && typeof input2 === "number") ||
-    resultType === "as-number"
-  ) {
-    result = +input1 + +input2;
-  } else {
-    result = input1.toString() + input2.toString();
-  }
-  return result;
+function add(n1: number, n2: number) {
+  return n1 + n2;
 }
 
-const combinedNums = combine(30, 26, "as-number");
-console.log(combinedNums);
+function printResult(num: number) {
+  console.log('Result: ' + num);
+}
 
-const combinedNumsString = combine(30, "26", "as-number");
-console.log(combinedNumsString);
+printResult(add(5, 12));
 
-const combinedNames = combine("Joms", "James", "as-text");
-console.log(combinedNames);
+let combineValues: (a: number, b: number) => number;
+combineValues = add;
+// combineValues = printResult; // ERROR!
+// combineValues = 5 // ERROR!
