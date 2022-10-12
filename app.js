@@ -1,6 +1,7 @@
+"use strict";
 // unknown Type
-var userInput;
-var userName;
+let userInput;
+let userName;
 userInput = 5;
 userInput = 'Joms';
 // userName = userInput // Type 'unknown' is not assignable to type 'string'.
