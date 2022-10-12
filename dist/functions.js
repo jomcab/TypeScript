@@ -12,8 +12,6 @@ function printResult(num) {
 printResult(add(5, 12));
 let combineValues;
 combineValues = add;
-// combineValues = printResult; // ERROR!
-// combineValues = 5 // ERROR!
 console.log(combineValues(8, 8));
 addAndHandle(10, 10, (result) => {
     console.log('Callback output: ' + result);
