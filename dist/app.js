@@ -6,7 +6,7 @@ class Department {
         this.employees = [];
     }
     describe() {
-        console.log('Department: ' + this.name);
+        console.log(`Department: (${this.id}) ${this.name}`);
     }
     addEmployee(employee) {
         this.employees.push(employee);
@@ -26,9 +26,23 @@ class AccountingDepartment extends Department {
     constructor(id, reports) {
         super(id, 'Accounting');
         this.reports = reports;
+        this.lastReport = '';
     }
     addReport(text) {
         this.reports.push(text);
+        this.lastReport = text;
+    }
+    get mostRecentReport() {
+        if (this.lastReport) {
+            return this.lastReport;
+        }
+        throw new Error('No report found.');
+    }
+    set mostRecentReport(value) {
+        if (!value) {
+            throw new Error('Please pass in a valid value!');
+        }
+        this.addReport(value);
     }
     printReports() {
         console.log(this.reports);
@@ -39,5 +53,7 @@ it.addEmployee('Jomer');
 it.addEmployee('James');
 console.log(it);
 const accounting = new AccountingDepartment('d2', []);
+accounting.mostRecentReport = 'Year End Report';
 accounting.addReport('Accounting Report...');
-accounting.printReports();
+console.log(accounting.mostRecentReport);
+accounting.printReports;
